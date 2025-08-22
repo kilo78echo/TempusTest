@@ -1,0 +1,31 @@
+# Elasticsearch configuration
+cluster:
+  name: example-cluster
+  nodes:
+    - node1.example.com
+    - node2.example.com
+    - node3.example.com
+settings:
+  discovery:
+    type: single-node
+  network:
+    host: 0.0.0.0
+    port: 9200
+  http:
+    cors:
+      enabled: true
+      allow-origin: "*"
+  indices:
+    max_shards_per_node: 1000
+    fielddata:
+      cache:
+        size: 40%
+  xpack:
+    security:
+      enabled: true
+      authc:
+        realms:
+          native:
+            type: native
+            order: 0
+# End of elasticsearch configuration

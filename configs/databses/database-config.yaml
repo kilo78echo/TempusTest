@@ -1,0 +1,31 @@
+# Example database configuration
+version: 1.0
+
+databases:
+  - name: main_db
+    type: postgres
+    host: db.example.com
+    port: 5432
+    username: admin
+    password: secret
+    ssl: true
+    max_connections: 100
+    timeout: 30
+    backup:
+      enabled: true
+      schedule: daily
+      location: /backups/main_db
+  - name: analytics_db
+    type: mysql
+    host: analytics.example.com
+    port: 3306
+    username: analytics
+    password: secret
+    ssl: false
+    max_connections: 50
+    timeout: 20
+    backup:
+      enabled: false
+      schedule: none
+      location: /backups/analytics_db
+# End of database configuration

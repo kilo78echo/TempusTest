@@ -1,0 +1,23 @@
+# TLS Auth configuration
+certificate:
+  path: /etc/ssl/certs/server-cert.pem
+  key_path: /etc/ssl/private/server-key.pem
+  ca_path: /etc/ssl/certs/ca-cert.pem
+settings:
+  protocols:
+    - TLSv1.2
+    - TLSv1.3
+  ciphers:
+    - ECDHE-ECDSA-AES256-GCM-SHA384
+    - ECDHE-RSA-AES256-GCM-SHA384
+    - ECDHE-ECDSA-CHACHA20-POLY1305
+    - ECDHE-RSA-CHACHA20-POLY1305
+  verify_peer: true
+  require_client_cert: true
+  session_timeout: 300
+  renegotiation: false
+logging:
+  enabled: true
+  level: info
+  file: /var/log/tls-auth.log
+# End of TLS Auth configuration

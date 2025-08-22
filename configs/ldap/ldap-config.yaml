@@ -1,0 +1,26 @@
+# LDAP configuration
+server:
+  host: ldap.example.com
+  port: 389
+  ssl: false
+  base_dn: dc=example,dc=com
+  bind_dn: cn=admin,dc=example,dc=com
+  bind_password: secret
+users:
+  search_base: ou=users,dc=example,dc=com
+  filter: (objectClass=person)
+  attributes:
+    - cn
+    - sn
+    - mail
+    - uid
+    - userPassword
+    - memberOf
+    - telephoneNumber
+    - title
+    - department
+    - manager
+    - employeeType
+    - loginShell
+    - homeDirectory
+# End of LDAP configuration
